@@ -1,4 +1,5 @@
-# 工程简介
+docker run -d -p 9411:9411 openzipkin/zipkin
 
-# 延伸阅读
+
+mvn config:
 

@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  #  ????????
+  #  eureka.server.enable-self-preservation: false
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 30
+    hostname: 192.168.101.24
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:/${server.port}/eureka/
+  server:
+    enable-self-preservation: true
+info:
+  app:
+    name: ${spring.application.name}
+    description: Eureka
+    version: 1.0.0
+server:
+  port: 8761

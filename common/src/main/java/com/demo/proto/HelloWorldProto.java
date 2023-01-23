@@ -15,6 +15,26 @@ public final class HelloWorldProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_demo_proto_AddCartReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_demo_proto_AddCartReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_demo_proto_ProductInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_demo_proto_ProductInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_demo_proto_Buyer_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_demo_proto_Buyer_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_demo_proto_OrderInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_demo_proto_OrderInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_demo_proto_HelloRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -33,12 +53,23 @@ public final class HelloWorldProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\ndemo.proto\022\016com.demo.proto\"\034\n\014HelloReq" +
-      "uest\022\014\n\004name\030\001 \001(\t\"\035\n\nHelloReply\022\017\n\007mess" +
-      "age\030\001 \001(\t2S\n\tMyService\022F\n\010SayHello\022\034.com" +
-      ".demo.proto.HelloRequest\032\032.com.demo.prot" +
-      "o.HelloReply\"\000B#\n\016com.demo.protoB\017HelloW" +
-      "orldProtoP\001b\006proto3"
+      "\n\ndemo.proto\022\016com.demo.proto\"-\n\014AddCartR" +
+      "eply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"4\n\013P" +
+      "roductInfo\022\021\n\tproductId\030\001 \001(\005\022\022\n\nproduct" +
+      "Num\030\002 \001(\005\"\030\n\005Buyer\022\017\n\007buyerId\030\001 \001(\005\"R\n\tO" +
+      "rderInfo\022\017\n\007orderId\030\001 \001(\005\022\021\n\tproductId\030\002" +
+      " \001(\005\022\021\n\torderTime\030\003 \001(\003\022\016\n\006remark\030\004 \001(\t\"" +
+      "\034\n\014HelloRequest\022\014\n\004name\030\001 \001(\t\"\035\n\nHelloRe" +
+      "ply\022\017\n\007message\030\001 \001(\t2\262\002\n\tMyService\022F\n\010Sa" +
+      "yHello\022\034.com.demo.proto.HelloRequest\032\032.c" +
+      "om.demo.proto.HelloReply\"\000\022A\n\tListOrder\022" +
+      "\025.com.demo.proto.Buyer\032\031.com.demo.proto." +
+      "OrderInfo\"\0000\001\022J\n\tAddToCart\022\033.com.demo.pr" +
+      "oto.ProductInfo\032\034.com.demo.proto.AddCart" +
+      "Reply\"\000(\001\022N\n\013BatchDeduct\022\033.com.demo.prot" +
+      "o.ProductInfo\032\034.com.demo.proto.AddCartRe" +
+      "ply\"\000(\0010\001B#\n\016com.demo.protoB\017HelloWorldP" +
+      "rotoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -52,14 +83,38 @@ public final class HelloWorldProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_com_demo_proto_HelloRequest_descriptor =
+    internal_static_com_demo_proto_AddCartReply_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_com_demo_proto_AddCartReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_demo_proto_AddCartReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_com_demo_proto_ProductInfo_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_com_demo_proto_ProductInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_demo_proto_ProductInfo_descriptor,
+        new java.lang.String[] { "ProductId", "ProductNum", });
+    internal_static_com_demo_proto_Buyer_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_com_demo_proto_Buyer_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_demo_proto_Buyer_descriptor,
+        new java.lang.String[] { "BuyerId", });
+    internal_static_com_demo_proto_OrderInfo_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_com_demo_proto_OrderInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_demo_proto_OrderInfo_descriptor,
+        new java.lang.String[] { "OrderId", "ProductId", "OrderTime", "Remark", });
+    internal_static_com_demo_proto_HelloRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_com_demo_proto_HelloRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_demo_proto_HelloRequest_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_com_demo_proto_HelloReply_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_com_demo_proto_HelloReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_demo_proto_HelloReply_descriptor,
