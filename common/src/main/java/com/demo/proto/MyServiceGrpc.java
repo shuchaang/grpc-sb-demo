@@ -46,6 +46,99 @@ public final class MyServiceGrpc {
     return getSayHelloMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.demo.proto.Buyer,
+      com.demo.proto.OrderInfo> getListOrderMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListOrder",
+      requestType = com.demo.proto.Buyer.class,
+      responseType = com.demo.proto.OrderInfo.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.demo.proto.Buyer,
+      com.demo.proto.OrderInfo> getListOrderMethod() {
+    io.grpc.MethodDescriptor<com.demo.proto.Buyer, com.demo.proto.OrderInfo> getListOrderMethod;
+    if ((getListOrderMethod = MyServiceGrpc.getListOrderMethod) == null) {
+      synchronized (MyServiceGrpc.class) {
+        if ((getListOrderMethod = MyServiceGrpc.getListOrderMethod) == null) {
+          MyServiceGrpc.getListOrderMethod = getListOrderMethod =
+              io.grpc.MethodDescriptor.<com.demo.proto.Buyer, com.demo.proto.OrderInfo>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListOrder"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.demo.proto.Buyer.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.demo.proto.OrderInfo.getDefaultInstance()))
+              .setSchemaDescriptor(new MyServiceMethodDescriptorSupplier("ListOrder"))
+              .build();
+        }
+      }
+    }
+    return getListOrderMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.demo.proto.ProductInfo,
+      com.demo.proto.AddCartReply> getAddToCartMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "AddToCart",
+      requestType = com.demo.proto.ProductInfo.class,
+      responseType = com.demo.proto.AddCartReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+  public static io.grpc.MethodDescriptor<com.demo.proto.ProductInfo,
+      com.demo.proto.AddCartReply> getAddToCartMethod() {
+    io.grpc.MethodDescriptor<com.demo.proto.ProductInfo, com.demo.proto.AddCartReply> getAddToCartMethod;
+    if ((getAddToCartMethod = MyServiceGrpc.getAddToCartMethod) == null) {
+      synchronized (MyServiceGrpc.class) {
+        if ((getAddToCartMethod = MyServiceGrpc.getAddToCartMethod) == null) {
+          MyServiceGrpc.getAddToCartMethod = getAddToCartMethod =
+              io.grpc.MethodDescriptor.<com.demo.proto.ProductInfo, com.demo.proto.AddCartReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddToCart"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.demo.proto.ProductInfo.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.demo.proto.AddCartReply.getDefaultInstance()))
+              .setSchemaDescriptor(new MyServiceMethodDescriptorSupplier("AddToCart"))
+              .build();
+        }
+      }
+    }
+    return getAddToCartMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.demo.proto.ProductInfo,
+      com.demo.proto.AddCartReply> getBatchDeductMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "BatchDeduct",
+      requestType = com.demo.proto.ProductInfo.class,
+      responseType = com.demo.proto.AddCartReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+  public static io.grpc.MethodDescriptor<com.demo.proto.ProductInfo,
+      com.demo.proto.AddCartReply> getBatchDeductMethod() {
+    io.grpc.MethodDescriptor<com.demo.proto.ProductInfo, com.demo.proto.AddCartReply> getBatchDeductMethod;
+    if ((getBatchDeductMethod = MyServiceGrpc.getBatchDeductMethod) == null) {
+      synchronized (MyServiceGrpc.class) {
+        if ((getBatchDeductMethod = MyServiceGrpc.getBatchDeductMethod) == null) {
+          MyServiceGrpc.getBatchDeductMethod = getBatchDeductMethod =
+              io.grpc.MethodDescriptor.<com.demo.proto.ProductInfo, com.demo.proto.AddCartReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "BatchDeduct"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.demo.proto.ProductInfo.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.demo.proto.AddCartReply.getDefaultInstance()))
+              .setSchemaDescriptor(new MyServiceMethodDescriptorSupplier("BatchDeduct"))
+              .build();
+        }
+      }
+    }
+    return getBatchDeductMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -96,12 +189,42 @@ public final class MyServiceGrpc {
 
     /**
      * <pre>
-     * Sends a greeting
+     * unary call
      * </pre>
      */
     public void sayHello(com.demo.proto.HelloRequest request,
         io.grpc.stub.StreamObserver<com.demo.proto.HelloReply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSayHelloMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *server stream
+     * </pre>
+     */
+    public void listOrder(com.demo.proto.Buyer request,
+        io.grpc.stub.StreamObserver<com.demo.proto.OrderInfo> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListOrderMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *client stream
+     * </pre>
+     */
+    public io.grpc.stub.StreamObserver<com.demo.proto.ProductInfo> addToCart(
+        io.grpc.stub.StreamObserver<com.demo.proto.AddCartReply> responseObserver) {
+      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getAddToCartMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *double
+     * </pre>
+     */
+    public io.grpc.stub.StreamObserver<com.demo.proto.ProductInfo> batchDeduct(
+        io.grpc.stub.StreamObserver<com.demo.proto.AddCartReply> responseObserver) {
+      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getBatchDeductMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -113,6 +236,27 @@ public final class MyServiceGrpc {
                 com.demo.proto.HelloRequest,
                 com.demo.proto.HelloReply>(
                   this, METHODID_SAY_HELLO)))
+          .addMethod(
+            getListOrderMethod(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                com.demo.proto.Buyer,
+                com.demo.proto.OrderInfo>(
+                  this, METHODID_LIST_ORDER)))
+          .addMethod(
+            getAddToCartMethod(),
+            io.grpc.stub.ServerCalls.asyncClientStreamingCall(
+              new MethodHandlers<
+                com.demo.proto.ProductInfo,
+                com.demo.proto.AddCartReply>(
+                  this, METHODID_ADD_TO_CART)))
+          .addMethod(
+            getBatchDeductMethod(),
+            io.grpc.stub.ServerCalls.asyncBidiStreamingCall(
+              new MethodHandlers<
+                com.demo.proto.ProductInfo,
+                com.demo.proto.AddCartReply>(
+                  this, METHODID_BATCH_DEDUCT)))
           .build();
     }
   }
@@ -133,13 +277,46 @@ public final class MyServiceGrpc {
 
     /**
      * <pre>
-     * Sends a greeting
+     * unary call
      * </pre>
      */
     public void sayHello(com.demo.proto.HelloRequest request,
         io.grpc.stub.StreamObserver<com.demo.proto.HelloReply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSayHelloMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *server stream
+     * </pre>
+     */
+    public void listOrder(com.demo.proto.Buyer request,
+        io.grpc.stub.StreamObserver<com.demo.proto.OrderInfo> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getListOrderMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *client stream
+     * </pre>
+     */
+    public io.grpc.stub.StreamObserver<com.demo.proto.ProductInfo> addToCart(
+        io.grpc.stub.StreamObserver<com.demo.proto.AddCartReply> responseObserver) {
+      return io.grpc.stub.ClientCalls.asyncClientStreamingCall(
+          getChannel().newCall(getAddToCartMethod(), getCallOptions()), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *double
+     * </pre>
+     */
+    public io.grpc.stub.StreamObserver<com.demo.proto.ProductInfo> batchDeduct(
+        io.grpc.stub.StreamObserver<com.demo.proto.AddCartReply> responseObserver) {
+      return io.grpc.stub.ClientCalls.asyncBidiStreamingCall(
+          getChannel().newCall(getBatchDeductMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -159,12 +336,23 @@ public final class MyServiceGrpc {
 
     /**
      * <pre>
-     * Sends a greeting
+     * unary call
      * </pre>
      */
     public com.demo.proto.HelloReply sayHello(com.demo.proto.HelloRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSayHelloMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *server stream
+     * </pre>
+     */
+    public java.util.Iterator<com.demo.proto.OrderInfo> listOrder(
+        com.demo.proto.Buyer request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getListOrderMethod(), getCallOptions(), request);
     }
   }
 
@@ -184,7 +372,7 @@ public final class MyServiceGrpc {
 
     /**
      * <pre>
-     * Sends a greeting
+     * unary call
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.demo.proto.HelloReply> sayHello(
@@ -195,6 +383,9 @@ public final class MyServiceGrpc {
   }
 
   private static final int METHODID_SAY_HELLO = 0;
+  private static final int METHODID_LIST_ORDER = 1;
+  private static final int METHODID_ADD_TO_CART = 2;
+  private static final int METHODID_BATCH_DEDUCT = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -217,6 +408,10 @@ public final class MyServiceGrpc {
           serviceImpl.sayHello((com.demo.proto.HelloRequest) request,
               (io.grpc.stub.StreamObserver<com.demo.proto.HelloReply>) responseObserver);
           break;
+        case METHODID_LIST_ORDER:
+          serviceImpl.listOrder((com.demo.proto.Buyer) request,
+              (io.grpc.stub.StreamObserver<com.demo.proto.OrderInfo>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -227,6 +422,12 @@ public final class MyServiceGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_ADD_TO_CART:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.addToCart(
+              (io.grpc.stub.StreamObserver<com.demo.proto.AddCartReply>) responseObserver);
+        case METHODID_BATCH_DEDUCT:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.batchDeduct(
+              (io.grpc.stub.StreamObserver<com.demo.proto.AddCartReply>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -279,6 +480,9 @@ public final class MyServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new MyServiceFileDescriptorSupplier())
               .addMethod(getSayHelloMethod())
+              .addMethod(getListOrderMethod())
+              .addMethod(getAddToCartMethod())
+              .addMethod(getBatchDeductMethod())
               .build();
         }
       }
