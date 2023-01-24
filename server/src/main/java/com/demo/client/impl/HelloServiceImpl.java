@@ -18,6 +18,11 @@ public class HelloServiceImpl extends MyServiceGrpc.MyServiceImplBase {
     @Override
     public void sayHello(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
         log.info("server log {}",request);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         String name = request.getName();
         HelloReply reply = HelloReply.newBuilder().setMessage("hello " + name+random.nextInt(10000)).build();
         responseObserver.onNext(reply);

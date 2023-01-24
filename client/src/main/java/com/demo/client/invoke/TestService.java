@@ -1,6 +1,9 @@
 package com.demo.client.invoke;
 
 import com.demo.proto.*;
+import io.grpc.Deadline;
+import io.grpc.Status;
+import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.client.inject.GrpcClient;
@@ -26,7 +29,13 @@ public class TestService {
 
     public String hello(){
         HelloRequest request = HelloRequest.newBuilder().setName("shuchang").build();
-        HelloReply helloReply = myServiceBlockingStub.sayHello(request);
+        HelloReply helloReply= null;
+        try{
+             helloReply = myServiceBlockingStub.withDeadline(Deadline.after(1, TimeUnit.SECONDS)).sayHello(request);
+        }catch (StatusRuntimeException e){
+            Status status = e.getStatus();
+            log.error("timeout {}",status);
+        }
         return helloReply.getMessage();
     }
 
